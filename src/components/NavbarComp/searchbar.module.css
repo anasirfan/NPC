@@ -1,0 +1,10 @@
+.toggle-label::before {
+  background-color: #0773B4;
+  transform: translateX(0%);
+}
+
+.searchBar input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 1px solid #ccc;
+}

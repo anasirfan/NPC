@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-const Profileicon = () => {
+import { RxAvatar } from "react-icons/rx";
+
+
+const ProfileIcon = () => {
   return (
-    <div>Profileicon</div>
-  )
-}
+    <div className="ml-18">
+      <button className=" rounded-full bg-gray-200">
+      <RxAvatar className="w-8 h-8 rounded-full"/>
+      </button>
+    </div>
+  );
+};
 
-export default Profileicon
+export default ProfileIcon;
