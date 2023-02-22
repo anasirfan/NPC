@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { FaVolumeMute, FaVolumeUp, FaPlay, FaPause, FaExpand, FaCompress } from 'react-icons/fa';
 import { RxAvatar } from "react-icons/rx";
 import styles from "./videoplayer.module.css";
-import videoPlayerStyles from './videoPlayer.module.css';
+import videoPlayerStyles from './videoplayer.module.css';
 import thumbnail from "../thumbnail.png";
 
 
