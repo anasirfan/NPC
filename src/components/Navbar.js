@@ -1,10 +1,11 @@
 import React from 'react';
 import Logo from './NavbarComp/Logo';
-import SearchBar from './NavbarComp/SearchBar';
+
 import DarkLightSwitch from './NavbarComp/DarkLightSwitch';
 import Notification from './NavbarComp/Notification';
 import ProfileIcon from './NavbarComp/ProfileIcon';
 import styles from './navbar.module.css';
+import SearchBar from './NavbarComp/SearchBar';
 
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
       <DarkLightSwitch />
       <Notification />
       <div className="ml-4 h-8">
-        <ProfileIcon />
+      <ProfileIcon />
       </div>
     </div>
   </nav>
