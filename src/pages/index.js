@@ -1,22 +1,27 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar'
+import { useState } from "react";
+import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
+import VideoPlayer from "@/components/VideoPlayer";
 
-const inter = Inter({ subsets: ['latin'] })
+export default function IndexPage() {
 
-export default function Home() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleSidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <>
-    <div className='right-20'>
-      <div>
-        <title>NPC-Best for Streaming</title>
-        <meta name='description'content='NPC-Best for Streaming' />
+    <div className="flex">
+      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <div className="flex flex-col flex-1">
+        <Navbar onSidebarToggle={handleSidebarToggle} />
+        <div className="flex-1">
+        <VideoPlayer/>
+        </div>
       </div>
-      <Navbar/>
-      <Sidebar/>
     </div>
-    </>
-  )
+  );
 }
+
+
