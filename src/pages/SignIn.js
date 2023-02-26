@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Head from "next/head";
 import styles from "./signup.module.css";
+import { useRouter } from "next/router";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Your authentication logic with backend API here

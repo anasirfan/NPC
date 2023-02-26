@@ -4,7 +4,42 @@
 }
 
 .searchBar input {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-left: 1px solid #ccc;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 1px solid #ccc;
+
 }
+.searchInput {
+  width: 300px;
+}
+
+.searchBar {
+  position: relative;
+}
+
+.recommendations {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+
+}
+
+.recommendation {
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  
+}
+
+/* .recommendation:hover {
+  background-color */
