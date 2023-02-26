@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
-import VideoPlayer from "@/components/VideoPlayer";
+import Sidebar from "../components/sidebar";
+import Navbar from "../components/navbar";
+import VideoPlayer from "@/components/video_player";
 
 export default function IndexPage() {
 

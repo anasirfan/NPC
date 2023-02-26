@@ -1,11 +1,11 @@
 import React from 'react';
-import Logo from './navbar_comp/Logo';
+import Logo from './navbar_comp/logo';
 
-import DarkLightSwitch from './navbar_comp/DarkLightSwitch';
-import Notification from './navbar_comp/Notification';
+import DarkLightSwitch from './navbar_comp/dark_light_switch';
+import Notification from './navbar_comp/notification';
 import ProfileIcon from './navbar_comp/profile_icon';
 import styles from './navbar.module.css';
-import SearchBar from './navbar_comp/SearchBar';
+import SearchBar from './navbar_comp/search_bar';
 
 
 const Navbar = () => {
