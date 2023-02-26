@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import { XIcon } from '@heroicons/react/outline';
 import React from 'react';
 import styles from "./signup.module.css";
@@ -23,41 +23,50 @@ function Signup() {
     const [instaLink, setInstaLink] = useState("");
     const [twitchLink, setTwitchLink] = useState("");
 
-    const handleKeyDown = (e, linkSetter) => {
-        if (e.key === "Enter") {
-            linkSetter(e.target.value);
+    const handleButtonClick = (linkSetter, setLink) => {
+        if (linkSetter) {
+          setLink(linkSetter);
+        } else {
+          setLink("");
         }
-    };
-
-    const handleButtonClick = (linkSetter) => {
-        linkSetter("");
-    };
-    const renderLinkButton = (linkSetter, label) => {
+      };
+      
+      const handleKeyDown = (event, linkSetter, setLink) => {
+        if (event.key === "Enter") {
+          handleButtonClick(linkSetter, setLink);
+        }
+      };
+      
+      const renderLinkButton = (linkSetter, setLink) => {
+        const label = linkSetter ? "Linked" : "Link";
+        const style = linkSetter ? { backgroundColor: "blue", color: "white" } : {};
+      
         return (
-            <div className='w-full'>
-            <button
-                className="rounded-full px-2 py-1 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out"
-                onClick={() => handleButtonClick(linkSetter)}
-            >
-                {linkSetter ? "Link" : label}
-            </button>
-            </div>
+          <button
+            className="rounded-full px-2 py-1 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out"
+            style={style}
+            onClick={() => handleButtonClick(linkSetter, setLink)}
+          >
+            {label}
+          </button>
         );
-    };
-    const renderLinkInput = (linkSetter, placeholder) => {
+      };
+      
+      const renderLinkInput = (linkSetter, setLink) => {
+        if (linkSetter) {
+          return null;
+        }
+      
         return (
-            
-            <input
-                className='rounded-md py-2 px-4 w-20 '
-                type="text"
-                placeholder={placeholder}
-                onKeyDown={(e) => handleKeyDown(e, linkSetter)}
-            />
-          
+          <input
+            className="rounded-md py-2 px-4 w-20"
+            type="text"
+            placeholder="Enter link..."
+            onKeyDown={(e) => handleKeyDown(e, linkSetter, setLink)}
+          />
         );
-    };
-
-
+      };
+      
     const [isCreator, setIsCreator] = useState(false);
     const [showCreatorContent, setShowCreatorContent] = useState(false);
 
@@ -617,16 +626,17 @@ function Signup() {
                          
                                 <div className="flex flex-row mt-12 ">
                                     <div className="flex flex-col gap-2">
-                                        <div className="w-1/2 flex gap-2">
-                                            <div className="flex items-center justify-center w-8 h-8 mr-2 mb-1 rounded-full">
-                                               
-                                                <FaFacebookF  />
-                                            </div>
-                                            <span>Facebook</span>
-                                            {fbLink
-                                                ? renderLinkInput(setFbLink, "Enter Facebook Link")
-                                                : renderLinkButton(setFbLink, "Facebook")}
-                                        </div>
+                                    <div className="w-1/2 flex gap-2">
+  <div className="flex items-center justify-center w-8 h-8 mr-2 mb-1 rounded-full">
+    <FaFacebookF />
+  </div>
+  <span>Facebook</span>
+  {fbLink ? (
+    renderLinkInput(fbLink, setFbLink, "Enter Facebook Link")
+  ) : (
+    renderLinkButton(fbLink, setFbLink, "Facebook")
+  )}
+</div>
                                         <div className="w-1/2 flex gap-2">
                                         <div className="flex items-center justify-center w-8 h-8 mr-4  rounded-full">
                                                
