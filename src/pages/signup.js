@@ -109,7 +109,7 @@ function Signup() {
                 <div className="px-4 py-6">
                     <p className="text-gray-500 text-sm ">
                         Already a member?{' '}
-                        <a style={{ cursor: "pointer", }} className="text-blue-500" onClick={() => router.push("/SignIn")}>
+                        <a style={{ cursor: "pointer", }} className="text-blue-500" onClick={() => router.push("/signIn")}>
                             Sign In
                         </a>
                     </p>
