@@ -65,8 +65,8 @@ const SignIn = () => {
             <div className="flex justify-between items-center mx-11 mt-4">
           <a
             className="text-sm text-blue-500 hover:text-blue-700 cursor-pointer"
-            href="#"
-            onClick={handleForgotPassword}
+            
+            onClick={() => router.push("/forgetpw")}
           >
             Forgotten Password?
           </a>
