@@ -1,9 +1,19 @@
-.main {
-  height: 600px;
-  width: 100px;
-}
+
 
 
 .bluebg {
   background-color: #0773B4;
+  
+}
+.bluecol{
+  color: #0773B4;
+  border-color: #0773B4;
+}
+
+.bluebg:hover{
+  background-color: #0773B4;
+}
+
+.cross{
+  margin-left: 437px;
 }
