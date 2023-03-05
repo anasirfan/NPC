@@ -7,3 +7,19 @@
 .bluebg {
   background-color: #0773B4;
 }
+
+.bluecol{
+  color:#0773B4;
+  border-color: #0773B4;
+}
+.bluecol2{
+ font-size: 14px;
+  border-color: #0773B4;
+}
+
+
+
+.whitecol{
+  color: white;
+  
+}

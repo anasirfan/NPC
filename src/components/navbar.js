@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './navbar_comp/logo';
 
-import DarkLightSwitch from './navbar_comp/dark_light_switch';
+import DarkLightSwitch from './navbar_comp/dark_light_switch.js';
 import Notification from './navbar_comp/notification';
 import ProfileIcon from './navbar_comp/profile_icon';
 import styles from './navbar.module.css';

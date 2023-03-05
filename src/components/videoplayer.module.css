@@ -270,3 +270,13 @@
   font-size: 14px;
   color: grey;
 }
+
+.joinbg {
+  background-color: #0773B480;
+  /* opacity: 50px; */
+}
+
+.btnbg{
+  background-color: #0773B433;
+  color: #0773B4;
+}

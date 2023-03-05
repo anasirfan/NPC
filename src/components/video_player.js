@@ -1,24 +1,34 @@
-// Step 1: Import the necessary modules
-import { useState } from 'react';
-import Image from 'next/image';
-import { FaVolumeMute, FaVolumeUp, FaPlay, FaPause, FaExpand, FaCompress } from 'react-icons/fa';
+import { useState } from "react";
+import Image from "next/image";
+import styles from "./sidebar.module.css";
+import style from "./videoplayer.module.css";
+
+import {
+  FaVolumeMute,
+  FaVolumeUp,
+  FaPlay,
+  FaPause,
+  FaExpand,
+  FaCompress,
+  FaRegThumbsDown,
+  FaRegThumbsUp
+} from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
-import styles from "./videoplayer.module.css";
-import videoPlayerStyles from './videoplayer.module.css';
-import thumbnail from "../thumbnail.png";
+import thumbnail from "./thumbnail.jpg";
+import { HiOutlineEye } from "react-icons/hi";
+import { GiShare } from "react-icons/gi";
+import { SiBitcoinsv } from "react-icons/si";
+import { BsThreeDots } from "react-icons/bs";
 
 
-  
 
-// Step 2: Define the VideoPlayer component
+
 const VideoPlayer = () => {
-  // Step 3: Define the state variables
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(50);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
-  // Step 4: Define the event handlers
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
   };
@@ -36,26 +46,32 @@ const VideoPlayer = () => {
     setIsFullScreen(!isFullScreen);
   };
 
-  // Step 5: Define the JSX
   return (
-    <div className="video-player-container">
-      <video
-        src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
-        controls
-        autoPlay
-        muted={isMuted}
-        volume={volume / 100}
-        className={`video-player ${isFullScreen ? 'fullscreen' : ''}`}
-      />
-
-      <div className="video-controls">
-        <div className="video-buttons">
-          <button className="play-pause-button" onClick={togglePlay}>
+    <div className="container pr-24  max-w-screen-lg pt-8 px-4">
+      <div className="relative">
+        <video
+          src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+          controls
+          autoPlay
+          muted={isMuted}
+          volume={volume / 100}
+          className={`w-full border rounded-lg ${
+            isFullScreen ? "fixed inset-0 z-50" : "relative"
+          }`}
+        />
+        {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <button
+            className="p-2 rounded-full bg-gray-700 text-white mr-2"
+            onClick={togglePlay}
+          >
             {isPlaying ? <FaPause /> : <FaPlay />}
           </button>
 
-          <div className="volume-control">
-            <button className="mute-button" onClick={toggleMute}>
+          <div className="flex items-center">
+            <button
+              className="p-2 rounded-full bg-gray-700 text-white mr-2"
+              onClick={toggleMute}
+            >
               {isMuted || volume === 0 ? <FaVolumeMute /> : <FaVolumeUp />}
             </button>
 
@@ -65,117 +81,168 @@ const VideoPlayer = () => {
               max="100"
               value={volume}
               onChange={handleVolumeChange}
-              className="volume-slider"
+              className="w-24"
             />
           </div>
 
-          <button className="fullscreen-button" onClick={toggleFullScreen}>
+          <button
+            className="p-2 rounded-full bg-gray-700 text-white ml-2"
+            onClick={toggleFullScreen}
+          >
             {isFullScreen ? <FaCompress /> : <FaExpand />}
           </button>
-        </div>
+        </div> */}
+      </div>
 
-        <div className="video-subtitles">
-          <span>Subtitles</span>
-          <select>
-            <option>English</option>
-            <option>Spanish</option>
-            <option>French</option>
-          </select>
+      <div className="mx-4 mt-8">
+        <div className="flex items-center mb-4 ">
+          <div>
+            <div className="text-2xl font-bold tracking-wide">
+              How I ve made millions with crypto
+            </div>
+          </div>
+        </div>
+        <div className="text-gray-400 text-md flex flex-row " >
+          <div>
+            <RxAvatar className="h-8 w-8"/>
+          </div>
+          <div className="text-md mx-3 font-medium">william doe</div>
+          <div className="flex flex-row space-x-4">
+          <div className="text-3xl -mt-2">•</div>
+          <div className=""><button className={`${style.joinbg} w-20 h-7 text-center text-sm mb-1 text-white border rounded-2xl `}>
+            Join</button></div>
+               <div className="text-3xl -mt-2">•</div>
+          <div>168.5k Subscribers</div>
+             <div className="text-3xl -mt-2">•</div>
+          </div>
+          <div className="flex flex-row px-3"><HiOutlineEye className="w-8 h-6 mr-1"/> <p>20.1k</p></div>
+          <div className={`flex flex-row px-3 ${style.btnbg} text-center w-20 text-sm text-white border rounded-2xl mx-3`}><button><FaRegThumbsUp className="w-8 h-5 pr-3 "/></button>
+          <button><FaRegThumbsDown className="w-8 h-5 pr-1 "/></button>
+          </div> 
+          <div className={`flex flex-row px-1 ${style.btnbg} text-center w-20 text-sm text-white border rounded-2xl`}><button>
+            <GiShare className="w-8 h-5 "/> </button><p className="text-black pt-1 ">Share</p></div>
+         <div className={`flex flex-row px-1 ${style.btnbg} text-center w-20 text-sm text-white border rounded-2xl mx-3 pt-1`}>  <SiBitcoinsv className="w-8 h-5 "/>Donate</div>
+          <div className="px-3"><BsThreeDots/></div>
+          
+          
         </div>
       </div>
-      <div className="video-player-container">
-  <div className="video-player">
-    {/* <!-- Video Player UI and controls --> */}
-  </div>
-  <div className={videoPlayerStyles.container}>
-        <div className={videoPlayerStyles.video}>
-          {/* Video player component */}
-        </div>
-        <div className={videoPlayerStyles.videoDesc}>
-          {/* Video title, user profile, date, views, like/dislike and share button */}
-          <div className={videoPlayerStyles.title}>
-            <h1>Video Title</h1>
+
+      <div className="absolute top-28 right-10">
+        <div className="flex flex-col">
+          <div className="text-md font-sm font-semibold mb-4">
+            Recommended Videos
           </div>
-          <div className={videoPlayerStyles.userActions}>
-            {/* User profile, date, views, like/dislike and share button */}
-          </div>
-          <div className={videoPlayerStyles.description}>
-            {/* Video description */}
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <div className={videoPlayerStyles.comments}>
-            {/* Comments section */}
-          </div>
-        </div>
-        <div className={videoPlayerStyles.recommendedVideos}>
-          <h2>Recommended videos</h2>
-          <div className={videoPlayerStyles.videoList}>
-            <div className={videoPlayerStyles.videoItem}>
-              <Image src={thumbnail} alt="video thumbnail" width={200} height={100} />
-              <div className={videoPlayerStyles.videoInfo}>
-                <div className={videoPlayerStyles.videoTitle}>Video Title</div>
-                <div className={videoPlayerStyles.userInfo}>User Name &#8226; 100 views</div>
+          <div className="grid grid-cols-1 gap-4">
+            <div className="flex flex-col bg-white rounded-md overflow-hidden shadow-md">
+              <div className="relative w-full h-24 pb-9/16">
+                <Image
+                  src={thumbnail}
+                  alt="video thumbnail"
+                  layout="fill"
+                  objectFit="cover"
+                />
+                <button className="absolute inset-0 flex items-center justify-center bg-gray-900 opacity-75 hover:opacity-100 transition-opacity">
+                  <FaPlay className="text-white text-3xl" />
+                </button>
+              </div>
+              <div className="p-4 flex-grow">
+                <div className="flex flex-row justify-between space-x-2 right-0">
+                  <div className="text-sm font-medium  text-gray-500">
+                    William doe
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    100 views • 2 days ago
+                  </div>
+                </div>
+                <button
+                  className={` ${styles.bluebg} text-white rounded-lg h-5 w-24 text-xs px-auto mt-2`}
+                  onClick={() => {
+                    // your backend logic for subscribing to the video
+                    console.log("Subscribed!");
+                  }}
+                >
+                  Subscribe
+                </button>
+                <div className="text-xl font-medium mt-2 w-52 font-semibold">
+                  Build your first UX UI design
+                </div>
               </div>
             </div>
-            {/* Add three more video items like the one above */}
+            <div className="flex flex-col bg-white rounded-md overflow-hidden shadow-md">
+              <div className="relative w-full h-24 pb-9/16">
+                <Image
+                  src={thumbnail}
+                  alt="video thumbnail"
+                  layout="fill"
+                  objectFit="cover"
+                />
+                <button className="absolute inset-0 flex items-center justify-center bg-gray-900 opacity-75 hover:opacity-100 transition-opacity">
+                  <FaPlay className="text-white text-3xl" />
+                </button>
+              </div>
+              <div className="p-4 flex-grow">
+                <div className="flex flex-row justify-between space-x-2 right-0">
+                  <div className="text-sm font-medium  text-gray-500">
+                    William doe
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    100 views • 2 days ago
+                  </div>
+                </div>
+                <button
+                  className={` ${styles.bluebg} text-white rounded-lg h-5 w-24 text-xs px-auto mt-2`}
+                  onClick={() => {
+                    // your backend logic for subscribing to the video
+                    console.log("Subscribed!");
+                  }}
+                >
+                  Subscribe
+                </button>
+                <div className="text-xl font-medium mt-2 w-52 font-semibold">
+                  Build your first UX UI design
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col bg-white rounded-md overflow-hidden shadow-md">
+              <div className="relative w-full h-24 pb-9/16">
+                <Image
+                  src={thumbnail}
+                  alt="video thumbnail"
+                  layout="fill"
+                  objectFit="cover"
+                />
+                <button className="absolute inset-0 flex items-center justify-center bg-gray-900 opacity-75 hover:opacity-100 transition-opacity">
+                  <FaPlay className="text-white text-3xl" />
+                </button>
+              </div>
+              <div className="p-4 flex-grow">
+                <div className="flex flex-row justify-between space-x-2 right-0">
+                  <div className="text-sm font-medium  text-gray-500">
+                    William doe
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    100 views • 2 days ago
+                  </div>
+                </div>
+                <button
+                  className={` ${styles.bluebg} text-white rounded-lg h-5 w-24 text-xs px-auto mt-2`}
+                  onClick={() => {
+                    // your backend logic for subscribing to the video
+                    console.log("Subscribed!");
+                  }}
+                >
+                  Subscribe
+                </button>
+                <div className="text-xl font-medium mt-2 w-52 font-semibold">
+                  Build your first UX UI design
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-  <div className="videoDesc">
-  <h1>Title of Video</h1>
-  <div className="videoDetails">
-    <div className="user-info">
-      <p>Username</p>
-      <p>Date</p>
-      <p>Views</p>
     </div>
-    <div className="video-actions">
-      <button className="like">Like</button>
-      <button className="dislike">Dislike</button>
-      <button className="share">Share</button>
-    </div>
-  </div>
-  <p>Description of the video.</p>
-</div>
-
-<div className="videoComments">
-  <h2>Comments</h2>
-  <div className="comment">
-    <div className="commentHeader">
-      <div className="user-info">
-        <p>Username</p>
-        <p>Date</p>
-      </div>
-      <div className="comment-actions">
-        <button className="like">Like</button>
-        <button className="dislike">Dislike</button>
-        <button className="reply">Reply</button>
-      </div>
-    </div>
-    <p>Comment text.</p>
-    <div className="commentReplies">
-      <div className="comment">
-        <div className="commentHeader">
-          <div className="user-info">
-            <p>Username</p>
-            <p>Date</p>
-          </div>
-          <div className="comment-actions">
-            <button className="like">Like</button>
-            <button className="dislike">Dislike</button>
-            <button className="reply">Reply</button>
-          </div>
-        </div>
-        <p>Reply text.</p>
-      </div>
-    </div>
-  </div>
-    </div>
-
-</div>
-
-</div>
   );
 };
 

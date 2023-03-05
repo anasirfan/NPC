@@ -1,0 +1,7 @@
+.bluebg {
+    background-color: #0773B4;
+  }
+  
+  :hover.bluebg{
+    background-color: rgb(39, 99, 155);
+  }
