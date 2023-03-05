@@ -45,7 +45,7 @@ const Notification = () => {
         <AiOutlineBell className="text-gray-600" />
       </button>
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-96 bg-white rounded-lg shadow-lg">
+        <div className="absolute right-0 mt-2 w-96 bg-white rounded-lg z-30 shadow-lg">
           <div className="px-4 py-2 flex justify-between items-center">
             <h3 className="font-semibold text-lg">Notifications</h3>
             <button onClick={handleBellClick}>

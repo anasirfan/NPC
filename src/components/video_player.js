@@ -47,7 +47,7 @@ const VideoPlayer = () => {
   };
 
   return (
-    <div className="container pr-24  max-w-screen-lg pt-8 px-4">
+    <div className="container flex flex-row  max-w-screen-2xl pt-8 px-4">
       <div className="relative">
         <video
           src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
@@ -59,40 +59,8 @@ const VideoPlayer = () => {
             isFullScreen ? "fixed inset-0 z-50" : "relative"
           }`}
         />
-        {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <button
-            className="p-2 rounded-full bg-gray-700 text-white mr-2"
-            onClick={togglePlay}
-          >
-            {isPlaying ? <FaPause /> : <FaPlay />}
-          </button>
-
-          <div className="flex items-center">
-            <button
-              className="p-2 rounded-full bg-gray-700 text-white mr-2"
-              onClick={toggleMute}
-            >
-              {isMuted || volume === 0 ? <FaVolumeMute /> : <FaVolumeUp />}
-            </button>
-
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={volume}
-              onChange={handleVolumeChange}
-              className="w-24"
-            />
-          </div>
-
-          <button
-            className="p-2 rounded-full bg-gray-700 text-white ml-2"
-            onClick={toggleFullScreen}
-          >
-            {isFullScreen ? <FaCompress /> : <FaExpand />}
-          </button>
-        </div> */}
-      </div>
+        
+      
 
       <div className="mx-4 mt-8">
         <div className="flex items-center mb-4 ">
@@ -127,9 +95,9 @@ const VideoPlayer = () => {
           
         </div>
       </div>
-
-      <div className="absolute top-28 right-10">
-        <div className="flex flex-col">
+      </div>
+      <div className="px-10">
+        <div className="w-52 flex flex-col">
           <div className="text-md font-sm font-semibold mb-4">
             Recommended Videos
           </div>
