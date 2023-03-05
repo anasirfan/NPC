@@ -55,7 +55,7 @@ const ProfileIcon = () => {
       )}
 
       {isOpen && (
-        <div className="absolute top-10 right-0 w-62 bg-white rounded-lg shadow-md py-4 ">
+        <div className="absolute top-10 right-0 z-30 w-62 bg-white rounded-lg shadow-md py-4 ">
           <div className="flex items-center flex-col">
             {isLoggedIn ? (
               <>
