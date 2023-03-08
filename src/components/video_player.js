@@ -20,7 +20,7 @@ import { GiShare } from "react-icons/gi";
 import { SiBitcoinsv } from "react-icons/si";
 import { BsThreeDots } from "react-icons/bs";
 import Download from "./icons/download";
-import Clip from "./icons/Clip";
+import Clip from "./icons/clip";
 import Donate from "./icons/donate";
 import Message from "./icons/message";
 import Report from "./icons/report";
